@@ -9,7 +9,7 @@ export default function Audio({ src, id, vol }) {
       src={src}
       id={id}
       className="clip"
-      //volume={Vol}
+      volume={Vol}
       type="audio/wav"
       autoPlay
       controls

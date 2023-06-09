@@ -11,7 +11,7 @@ export default class Parent extends Component {
       power: true,
       active: false,
       bank: 1,
-      vol: 0.6,
+      vol: 60,
       display: "DISPLAY",
       audio: {
         src: "",
@@ -31,11 +31,11 @@ export default class Parent extends Component {
     this.setState({ vol: Number(e.target.value) });
   };
   updateDisplay = (e) =>
-    this.setState({ display: `Volume: ${e.target.value * 100}` });
+    this.setState({ display: `Volume: ${e.target.value}` });
 
   searchButton = (letter) => {
     //Busca el botón mediante la letra y cambia el color de fondo
-    document.querySelectorAll(".drum-pad").forEach((bt) => {
+    const $buttons = document.querySelectorAll(".drum-pad").forEach((bt) => {
       if (bt.textContent === letter) {
         bt.classList.toggle("pressed");
       }
@@ -115,18 +115,17 @@ export default class Parent extends Component {
     //console.log("COMPONENT MONTADO");
     document.addEventListener("keydown", this.handlerKeyDown);
     document.addEventListener("keyup", this.handlerKeyup);
-    //this.updateVolume;
-    //const $audio = document.querySelector(".clip");
-    /* document.addEventListener("change", (e) => {
+    const $audio = document.querySelector(".clip");
+    document.addEventListener("change", (e) => {
       $audio.volume = this.state.vol / 100;
-    }); */
+    });
   }
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handlerKeyDown);
     document.removeEventListener("keyup", this.handlerKeyup);
-    /* document.removeEventListener("change", (e) => {
-      //$audio.volume = e.target.value/100;
-    }); */
+    document.removeEventListener("change", () => {
+      $audio.volume = this.state.vol / 100;
+    });
   }
   /* shouldComponentUpdate(nextProps, nextState){
     console.log("Should it update");
@@ -139,7 +138,7 @@ export default class Parent extends Component {
   }
   render() {
     //console.log("RENDERIZADO ----")
-    //this.powerOff();
+    this.powerOff();
     return (
       <main id="drum-machine">
         <div id="panel-pad">
@@ -168,8 +167,7 @@ export default class Parent extends Component {
           <Audio
             src={this.state.audio.src}
             id={this.state.audio.id}
-            //vol={this.state.vol}
-            volume={this.state.vol}
+            vol={this.state.vol}
           />
         </div>
         <div className="controls" onChange={this.updateDisplay}>
@@ -185,9 +183,8 @@ export default class Parent extends Component {
             type="range"
             name="volumen"
             id="vol"
-            min="0"
-            max="1"
-            step="0.1"
+            min="1"
+            max="100"
             value={this.state.vol}
             onChange={this.updateVolume}
             disabled={!this.state.power}
