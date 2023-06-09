@@ -23,5 +23,5 @@ Audio.propTypes = {
   vol: PropTypes.number.isRequired,
 };
 Audio.defaultProps = {
-  vol: 0.6,
+  vol: 60,
 };
