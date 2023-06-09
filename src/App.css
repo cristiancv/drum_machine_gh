@@ -1,0 +1,100 @@
+:root {
+  --btn-color: rgb(4, 165, 152);
+  --bg-panel: rgba(134, 141, 146, 0.842);
+  --shadow-border: #5c5a5a;
+  --display: #ddd;
+  --btn-on: rgb(165, 4, 17);
+  --preset1: rgb(211, 147, 10);
+  --preset2: rgb(147, 10, 211);
+  --btn-pad-active: rgb(2, 83, 76);
+  --btn-pad-active-text: rgb(192, 232, 229);
+}
+*,
+::before,
+/* el seudoselector ::before es para que aplique el primer elemento
+y el seudoselector ::after para que aplique al último elemento
+*/
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%; /* Esto es para fijar 1rem = 10px */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#drum-machine {
+  width: 55%;
+  padding: 2rem;
+  outline: var(--shadow-border) solid 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--bg-panel);
+  row-gap: 2rem;
+  text-align: center;
+  position: relative;
+}
+#panel-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 10rem);
+  gap: 1.5rem;
+}
+.drum-pad {
+  font-size: 2.6rem;
+  background-color: var(--btn-color);
+  border-radius: 0.8rem;
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--shadow-border);
+}
+.drum-pad:active {
+  background-color: var(--btn-pad-active);
+  color: var(--btn-pad-active-text);
+}
+.pressed {
+  background-color: var(--btn-pad-active);
+  color: var(--btn-pad-active-text);
+  box-shadow: -2px -2px 1px black;
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  gap: 2rem;
+  justify-content: stretch;
+}
+.controls button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.controls #display {
+  background-color: var(--display);
+  padding: 1rem 2rem;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border: 0.8rem double black;
+  width: 100%;
+}
+.controls #btn-onoff {
+  background-color: var(--btn-on);
+  color: white;
+}
+.controls #preset {
+  background-color: var(--preset1);
+  color: floralwhite;
+}
+#preset.preset_2 {
+  background-color: var(--preset2);
+}
+input,
+button {
+  cursor: pointer;
+}

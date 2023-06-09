@@ -1,0 +1,26 @@
+{
+  "bank":[
+    {
+      "Q": "./src/assets/s001.wav",
+      "W": "./src/assets/s002.wav",
+      "E": "./src/assets/s003.wav",
+      "A": "./src/assets/s004.wav",
+      "S": "./src/assets/s005.wav",
+      "D": "./src/assets/s006.wav",
+      "Z": "./src/assets/s007.wav",
+      "X": "./src/assets/s008.wav",
+      "C": "./src/assets/s009.wav"
+    },
+    {
+      "Q": "./src/assets/s010.wav",
+      "W": "./src/assets/s011.wav",
+      "E": "./src/assets/s012.wav",
+      "A": "./src/assets/s013.wav",
+      "S": "./src/assets/s001.wav",
+      "D": "./src/assets/s002.wav",
+      "Z": "./src/assets/s003.wav",
+      "X": "./src/assets/s004.wav",
+      "C": "./src/assets/s005.wav"
+    }
+  ]
+}
